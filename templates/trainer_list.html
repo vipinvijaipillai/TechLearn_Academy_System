@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Trainer List</h2>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Full name</th>
+            <th>Expertise</th>
+            <th>Email</th>
+            <th>Trainer Photo</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for trainer in trainers %}
+         <tr>
+            <td>{{ trainer.full_name }}</td>
+            <td>{{ trainer.expertise }}</td>
+            <td>{{ trainer.email }}</td>
+            <td>
+                {% if trainer.trainer_photo %}
+                <img src="{{ trainer.trainer_photo.url }}" width="120">
+                {% else %}
+                No Photo
+                {% endif %}
+            </td>
+         </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

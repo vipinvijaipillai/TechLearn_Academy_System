@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Courses</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+
+            <th>Course name</th>
+            <th>Duration</th>
+            <th>Course image</th>
+            <th>Description</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for course in courses %}
+
+        <tr>
+            <td>{{ course.course_name }}</td>
+            <td>{{ course.duration }}</td>
+            <td>
+                {% if course.course_img %}
+                <img src="{{ course.course_image.url }}" width="100">
+                {% else %}
+                No image
+                {% endif %}
+
+            </td>
+            <td>{{ course.description }}</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+
+</table>
+{% endblock %}
+
+
+<!-- 
+
+    {% for c in courses %}
+    <tr>
+        <td>{{ c.course_name }}</td>
+        <td>{{ c.duration }}</td>
+        <td>
+            {% if c.course_img %}
+            <img src="{{ c.course_image.url }}" width="100">
+            {% else %}
+            No Image
+            {% endif %}
+        </td>
+        <td>{{ c.description }}</td>
+    </tr>
+    {% endfor %} -->
